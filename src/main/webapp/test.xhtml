@@ -13,22 +13,13 @@
 
         <h5>Enter key opens overlay panel instead of triggering ajax. Ajax triggers on blur.</h5>
         <h:form id="frmTest">
-            <h:inputText id="asd">
-                <p:ajax event="change" />
+            <h:inputText value="#{testView.map['ena']}" validator="testValidator">
             </h:inputText>
-            <h:inputText id="asd1">
-                <p:ajax event="change" />
+            <h:inputText value="#{testView.map['dva']}">
             </h:inputText>
-            <p:overlayPanel for="asd" showEvent="focus" hideEvent="blur">
-                asd
-            </p:overlayPanel>
+            <p:commandLink action="#{testView.save()}" value="Save" />
         </h:form>
 
-        <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
-
-        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
-            <p:graphicImage name="/demo/images/ajaxloadingbar.gif" />
-        </p:dialog>
 
     </h:body>
 </html>
