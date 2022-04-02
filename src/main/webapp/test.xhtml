@@ -11,9 +11,19 @@
     </h:head>
     <h:body>
 
-        <h1>#{testView.string}</h1>
+        <p:messages id="msgs" globalOnly="true" closable="true">
+            <p:autoUpdate />
+        </p:messages>
+
+        <p:commandButton value="Test messages" action="#{testView.testMsgs}" process="@this" />
+
         <h:form id="frmTest">
-            
+            <p:dataTable value="#{testView.model}" var="element" lazy="true" paginator="true" rows="10">
+                <p:ajax event="page" update="msgs" process="@this" />
+                <p:column headerText="index">
+                    #{element}
+                </p:column>
+            </p:dataTable>
         </h:form>
 
     </h:body>
